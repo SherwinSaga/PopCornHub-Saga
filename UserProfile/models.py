@@ -4,7 +4,7 @@ from Authentication.models import User
 
 
 # Create your models here.
-class UserProfile(models.Model):
+class Profile(models.Model):
     # Kulang pa ang user model.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     pass
@@ -12,14 +12,14 @@ class UserProfile(models.Model):
 
 class FavoriteMovies(models.Model):
     favoriteID = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     # movieID = Foreign key sa list of movies.
     pass
 
 
 class WatchList(models.Model):
     watchlistID = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     # movieID = Foreign key sa list of movies
     pass
 
