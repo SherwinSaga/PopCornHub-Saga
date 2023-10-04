@@ -3,12 +3,13 @@ from django.db import models
 
 # Create your models here.
 from Authentication.models import User
+from Movie.models import Movie
+
+
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    #movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    reviewID = models.CharField(max_length=20, primary_key=True)
+    userID = models.ForeignKey(User, on_delete=models.CASCADE)
+    movieID = models.ForeignKey(Movie, on_delete=models.CASCADE)
     rating = models.IntegerField()
     review_text = models.TextField()
     review_date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Review by {self.user.username} on {self.movie.title}"

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Movie(models.Model):
     MovieID = models.CharField(max_length=20, primary_key=True)
@@ -9,6 +10,4 @@ class Movie(models.Model):
     Description = models.TextField()
     Rating = models.FloatField()
     RunTime = models.IntegerField()
-
-    def __str__(self):
-        return self.MovieTitle
+    Director = models.CharField(max_length=100)
