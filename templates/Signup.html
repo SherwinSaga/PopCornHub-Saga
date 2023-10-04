@@ -12,8 +12,10 @@
 <body>
     <div class="wrap">
       <h1 class="form-title">REGISTRATION</h1>
-      <form action="Login.html">
-        <div class="main-info">
+      <form action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="main-info">
           <div class="input-first">
             <label for="firstName">First Name:</label>
             <input type="text"
@@ -43,6 +45,7 @@
             <input type="email"
                     id="email"
                     name="email"
+                    maxlength="20"
                     placeholder="Enter Email"/>
           </div>
 
@@ -64,7 +67,7 @@
         </div>
 
         <div class="form-submit-btn">
-          <input type="submit" value="REGISTER">
+          <input type="submit" value="register">
         </div>
 
         <div class="account">
