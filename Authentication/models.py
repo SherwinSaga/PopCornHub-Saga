@@ -6,7 +6,10 @@ from django.db import models
 class User(models.Model):
     # Add any additional user attributes here
     username = models.CharField(max_length=20)
-    pass
+    password = models.CharField(max_length=20)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    email = models.CharField(max_length=20)
 
 
 class Movie(models.Model):
