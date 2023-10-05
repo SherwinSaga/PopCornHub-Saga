@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect
 from Authentication.models import User
-
-
 # Create your views here.
 
-def log_in(request):
-    return render(request, "login.html")
+
+def login(request):
+    return render(request, 'login.html')
 
 
-def sign_up(request):
+def signup(request):
     return render(request, 'signup.html')
 
 
@@ -23,7 +22,6 @@ def register(request):
         user = User(username=username, password=password,
                     first_name=first_name,
                     last_name=last_name, email=email)
-
         user.save()
 
     return render(request, 'login.html')
