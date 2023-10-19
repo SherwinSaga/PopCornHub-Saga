@@ -16,8 +16,7 @@ class FavoriteMovies(models.Model):
 class WatchList(models.Model):
     watchlistID = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    movieId = models.ForeignKey(Movie, on_delete=models.CASCADE, default=" ")
-
+    movieId = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True)
     pass
 
 
@@ -28,4 +27,5 @@ class Watched(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s Watched"
+
 
