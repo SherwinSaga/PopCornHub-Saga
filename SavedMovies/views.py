@@ -4,7 +4,7 @@ from django.views import View
 
 from Movie.models import Movie
 from Authentication.models import User
-from .form import FavoriteMoviesForm, WatchListForm, WatchedForm
+from .form import FavoriteMoviesForm, WatchListForm, WatchedForm, UserForm
 
 
 # Create your views here.
@@ -12,6 +12,20 @@ from .form import FavoriteMoviesForm, WatchListForm, WatchedForm
 def login_view(request):
     return render(request, 'login.html')
 
+
+class register_User(View):
+    template = 'registeruser.html'
+
+    def get(self, request):
+        form = UserForm()
+        return render(request, self.template, {'form':form})
+
+    def post(self, request):
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        return render(request, self.template, {'form':form})
 
 class register_Favmovie(View):
     template = 'registration1.html'

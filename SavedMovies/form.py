@@ -4,12 +4,6 @@ from .models import *
 from Authentication.models import *
 
 class FavoriteMoviesForm(forms.ModelForm):
-    #favoriteID = forms.IntegerField(widget=forms.TextInput)
-    #user = forms.CharField(widget=forms.TextInput)
-    #movie = forms.CharField(widget=forms.TextInput)
-    #movieId = forms.CharField(widget=forms.TextInput)
-    #watchlistID = forms.IntegerField(widget=forms.TextInput)
-    #dateMarkedAsWatched = forms.DateTimeField(widget=forms.TextInput)
 
     class Meta:
         model = FavoriteMovies
@@ -28,3 +22,10 @@ class WatchedForm(forms.ModelForm):
     class Meta:
         model = Watched
         fields=['user', 'movie']
+
+
+class UserForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields=['username', 'password', 'first_name', 'last_name', 'email']
