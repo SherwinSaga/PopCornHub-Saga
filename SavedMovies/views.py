@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
@@ -9,9 +10,20 @@ from .form import FavoriteMoviesForm, WatchListForm, WatchedForm, UserForm
 
 # Create your views here.
 
-def login_view(request):
-    return render(request, 'login.html')
+class login_user(View):
+    template = 'login.html'
 
+    def get(self, request):
+        return render(request, self.template)
+
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+        user = User.objects.filter(username=username, password=password).first()
+        if user is not None:
+            return HttpResponse('EXISTS')
+        else:
+            return HttpResponse('User not found')
 
 class register_User(View):
     template = 'registeruser.html'

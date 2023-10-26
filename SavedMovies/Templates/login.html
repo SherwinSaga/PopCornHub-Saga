@@ -55,13 +55,16 @@
 <body>
 
 <div class="login">
-  <h2>Login</h2>
+        <h2>Login</h2>
 
-    <div class="idk">
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
-    </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="idk">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </div>
+        </form>
 
 </div>
 
