@@ -22,7 +22,7 @@ class WatchList(models.Model):
 
 class Watched(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movieID = models.ForeignKey(Movie, on_delete=models.CASCADE)
     date_marked_as_watched = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

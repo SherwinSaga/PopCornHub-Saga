@@ -7,21 +7,21 @@ class FavoriteMoviesForm(forms.ModelForm):
 
     class Meta:
         model = FavoriteMovies
-        fields=['favoriteID', 'user',  'movieID']
+        fields=['user',  'movieID']
 
 
 class WatchListForm(forms.ModelForm):
 
     class Meta:
         model = WatchList
-        fields=['watchlistID', 'user', 'movieID']
+        fields=['user', 'movieID']
 
 
 class WatchedForm(forms.ModelForm):
 
     class Meta:
         model = Watched
-        fields=['user', 'movie']
+        fields=['user', 'movieID']
 
 
 class UserForm(forms.ModelForm):
